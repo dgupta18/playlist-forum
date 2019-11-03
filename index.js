@@ -211,7 +211,7 @@ app.get("/Length", function(req,res){
   retArr.sort(function(b,a){
     return a.numSongs > b.numSongs ? 1 : (a.numSongs === b.numSongs) ? ((a.title > b.title) ? 1 : -1) : -1 ;
   });
-  
+
   res.render('home', {
     data: retArr,
     filter: "Length",
@@ -246,6 +246,22 @@ app.get("/api/Random", function(req,res){
   res.json(rand);
 })
 
+app.get("/search/:query", function(req,res){
+  var _query = req.params.query.toLowerCase();
+  var retArr = [];
+
+  console.log("QUERY: " + _query)
+
+  _.each(_DATA, function(elem){
+    if (elem.title.toLowerCase().startsWith(_query)) {
+      retArr.push(elem);
+    }
+  })
+
+  console.log(retArr);
+
+  res.send(retArr);
+})
 
 app.listen(process.env.PORT || 3000, function() {
     console.log('Listening on port 3000!');

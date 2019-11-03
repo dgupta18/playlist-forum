@@ -78,10 +78,18 @@ request(options, function (error, response, body) {
 ### 3. View Data
 
 GET endpoint route: `/api/getPlaylists`
+GET navigation filter endpoint routes: 
+`/api/Mood`
+`/api/Mood/:subgroup`
+`/api/Artists`
+`/api/Length`
+`/api/Curator`
+`/api/Curator/:subgroup`
+`/api/Random`
 
 ### 4. Search Data
 
-Search Field: `name`
+Search Field: `title of playlist`
 
 ### 5. Navigation Pages
 

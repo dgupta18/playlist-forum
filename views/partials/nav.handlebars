@@ -6,7 +6,7 @@
     <a href="/Curator">Curator</a>
     <a href="/Random">Random</a>
     {{#if onHome}}
-    <input id="search" type="text" placeholder="Search by name">
+    <input id="search" type="text" placeholder="Search by title">
     {{/if}}
 </div>
 <hr>
@@ -14,10 +14,71 @@
 <script>
     function checkSearch(value) {
         console.log("VALUE: " + value);
+        var url = "/search/" + value;
+        console.log("URL: " + url);
+
+        if (url === "/search/") {
+            $.get("api/getPlaylists", function(data){
+                $('#left').html("");
+                $.each(data, function (index, elem) {
+                    var card =
+                        `<article id="displayCard">
+                        {{!-- display picture --}}
+                        <span id="displayLeft">
+                            <div id="displayCover">
+                                <img src=${elem.cover} />
+                            </div>
+                        </span>
+                        {{!-- display other info --}}
+                        <span id="displayRight">
+                            <span id="playTitle">${elem.title}</span> <a href=${elem.link} id="playLink">(Listen)</a>
+                            <div id="space"></div>
+                            <span class="playInfo">By: ${elem.curator}</span>
+                            <div id="space"></div>
+                            <span class="playInfo">Length: ${elem.numSongs} songs</span>
+                            <div id="space"></div>
+                            <div><span id="playTags" class="playInfo">Moods: ${elem.tags}<span>
+                        </span>
+                    </article>
+                    <br>`;
+                    $('#left').append(card);
+                });
+            });
+        } else {
+            $.get(url, function (data) {
+                $('#left').html("");
+                $.each(data, function (index, elem) {
+                    var card =
+                        `<article id="displayCard">
+                        {{!-- display picture --}}
+                        <span id="displayLeft">
+                            <div id="displayCover">
+                                <img src=${elem.cover} />
+                            </div>
+                        </span>
+                        {{!-- display other info --}}
+                        <span id="displayRight">
+                            <span id="playTitle">${elem.title}</span> <a href=${elem.link} id="playLink">(Listen)</a>
+                            <div id="space"></div>
+                            <span class="playInfo">By: ${elem.curator}</span>
+                            <div id="space"></div>
+                            <span class="playInfo">Length: ${elem.numSongs} songs</span>
+                            <div id="space"></div>
+                            <div><span id="playTags" class="playInfo">Moods: ${elem.tags}<span>
+                        </span>
+                    </article>
+                    <br>`;
+
+                    console.log(card);
+                    console.log("before: " + $('#left')[0].innerHTML);
+                    $('#left').append(card);
+                    console.log("after:  " + $('#left')[0].innerHTML);
+                });
+            });
+        }
     }
 
     $('#search').keyup(function(event){
-        console.log(event);
         checkSearch(event.target.value);
     });
 </script>
