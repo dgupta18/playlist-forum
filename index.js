@@ -38,7 +38,7 @@ app.get("/create", function (req, res) {
   });
 });
 
-app.post("/create", function (req, res) {
+app.post("/api/create", function (req, res) {
   var body = req.body;
   var newPlaylist = {};
   newPlaylist["title"] = body.title;
