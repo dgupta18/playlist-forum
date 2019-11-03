@@ -1,0 +1,25 @@
+{{#each data}}
+    <article id="displayCard">
+        {{!-- display picture --}}
+        <span id="displayLeft">
+            <div id="displayCover">
+                <img src={{this.cover}} />
+            </div>
+        </span>
+
+        {{!-- display other info --}}
+        <span id="displayRight">
+            {{!-- display title --}}
+            <p>{{this.title}} (LISTEN)</p>
+            {{!-- display  --}}
+            
+
+        </span>
+        
+    </article>
+    <br>
+{{else}}
+    <article style="padding-left: 10px;">
+        <h2>No playlists yet - be the first to add one!</h2>
+    </article>
+{{/each}}

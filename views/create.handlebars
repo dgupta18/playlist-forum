@@ -1,0 +1,66 @@
+<article id="form">
+    <h1>Add a playlist!</h1>
+    <form id="createForm" method="POST" action=/create>
+        <div class="input-field">
+            <label>Playlist Title:</label><br>
+            <input type="text" name="title" size="50" placeholder="ex: Chill">
+        </div>
+        <div id="space"></div>
+        <div class="input-field">
+            <label>Number of Songs:</label><br>
+            <input type="text" name="numSongs" size="50" placeholder="ex: 50">
+        </div>
+        <div id="space"></div>
+        <div class="input-field">
+            <label>Link to Playlist:</label><br>
+            <input type="text" name="link" size="100" placeholder="ex: https://open.spotify.com/playlist/5CZM27oqcR8tZH2aTB04bi?si=0u95lZwLRsCi1RiH2tHMGw">
+        </div>
+        <div id="space"></div>
+        <div class="input-field">
+            <label>Is this an Artist Compilation?</label><br>
+            <input type="radio" name="isArtistComp" value="true">Yes&nbsp;
+            <input type="radio" name="isArtistComp" value="false" checked>No<br>
+        </div>
+        <div id="space"></div>
+        <div class="input-field">
+            <label>Tags:</label><br>
+            <input type="text" name="tags" size="50" placeholder="ex: chill hiphop r&b (separate with spaces)">
+        </div>
+        <div id="space"></div>
+        <div class="input-field">
+            <label>Curator Name:</label><br>
+            <input type="text" name="curator" size="50" placeholder="ex: Divya">
+        </div>
+        <div id="space"></div>
+        <div class="input-field">
+            <label>Link to Cover:</label><br>
+            <input type="text" name="cover" size="100"
+                placeholder="ex: https://f4.bcbits.com/img/a2170386826_10.jpg">
+        </div>
+        <div id="space"></div>
+        <div id="space"></div>
+        <button id="submitPlaylist" type="submit">Submit!</button>
+    </form>
+</article>
+<script>
+    function submitPlaylist() {
+        var newPlaylist = {};
+        newPlaylist["title"] = $('input[name="title"]').toString();
+        newPlaylist["link"] = $('input[name="link"]').toString();
+        newPlaylist["numSongs"] = parseInt($('input[name="numSongs"]'));
+        newPlaylist["tags"] = $('input[name="tags"]').toString().split(" ");
+        newPlaylist["isArtistComp"] = $('input[name="isArtistComp"]:checked', '#createForm') === "true";
+        newPlaylist["author"] = $('input[name="author"]').toString();
+        newPlaylist["cover"] = $('input[name="cover"]').toString();
+
+        console.log(newPlaylist);
+
+        _DATA.push(newPlaylist)
+        dataUtil.saveData(_DATA);
+        document.location.href = "/";
+
+        console.log("hello");
+    }
+
+    $('#submitPlaylist').click(submitPlaylist());
+</script>
