@@ -89,8 +89,10 @@ h3 {
     float:left;
     padding: 10px 10px;
 }
+
 #displayRight {
-    padding: 10px 10px;
+    margin: 10px 10px;
+    color: #001020
 }
 
 #displayCover {
@@ -104,8 +106,24 @@ h3 {
     max-height: 100%;
 }
 
-#displayTitle {
-    color: #001020;
+#playTitle {
+    font-size: 20px;
+}
+
+#playLink {
+    font-style: italic;
+    text-decoration: none;
+    font-size: 20px;
+    color: #4375A0;
+}
+
+.playInfo {
+    font-size: 14px;
+}
+
+#playTags {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #displayCard {
@@ -114,6 +132,14 @@ h3 {
     margin: 10px 10px;
     border-radius: .7%;
     display: inline-block
+}
+
+#groupDisp {
+    margin: 10px 10px;
+    line-height: 60px;
+    padding: 10px 20px;
+    background-color: #8CB1D1;
+    color: #001020
 }
 
 span {

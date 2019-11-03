@@ -42,25 +42,3 @@
         <button id="submitPlaylist" type="submit">Submit!</button>
     </form>
 </article>
-<script>
-    function submitPlaylist() {
-        var newPlaylist = {};
-        newPlaylist["title"] = $('input[name="title"]').toString();
-        newPlaylist["link"] = $('input[name="link"]').toString();
-        newPlaylist["numSongs"] = parseInt($('input[name="numSongs"]'));
-        newPlaylist["tags"] = $('input[name="tags"]').toString().split(" ");
-        newPlaylist["isArtistComp"] = $('input[name="isArtistComp"]:checked', '#createForm') === "true";
-        newPlaylist["author"] = $('input[name="author"]').toString();
-        newPlaylist["cover"] = $('input[name="cover"]').toString();
-
-        console.log(newPlaylist);
-
-        _DATA.push(newPlaylist)
-        dataUtil.saveData(_DATA);
-        document.location.href = "/";
-
-        console.log("hello");
-    }
-
-    $('#submitPlaylist').click(submitPlaylist());
-</script>

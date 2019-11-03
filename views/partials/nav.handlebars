@@ -10,3 +10,14 @@
     {{/if}}
 </div>
 <hr>
+
+<script>
+    function checkSearch(value) {
+        console.log("VALUE: " + value);
+    }
+
+    $('#search').keyup(function(event){
+        console.log(event);
+        checkSearch(event.target.value);
+    });
+</script>
