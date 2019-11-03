@@ -64,7 +64,7 @@ app.post("/api/create", function (req, res) {
   _DATA.push(body);
   dataUtil.saveData(_DATA);
   res.redirect("/");
-})
+});
 
 app.get("/Mood", function(req,res){
   var tags = dataUtil.getAllTags(_DATA);
@@ -86,7 +86,7 @@ app.get("/Mood", function(req,res){
 app.get("/api/Mood", function(req,res){
   var tags = dataUtil.getAllTags(_DATA);
   res.json(tags);
-})
+});
 
 app.get("/Curator", function(req,res){
   var curators = new Set();
@@ -104,7 +104,7 @@ app.get("/Curator", function(req,res){
     onCreate: false, 
     curator: curator
   });
-})
+});
 
 app.get("/api/Curator", function (req, res) {
   var curators = new Set();
@@ -133,9 +133,9 @@ app.get("/Mood/:subgroup", function(req,res) {
   });
 });
 
-app.get("api/Mood/:subgroup", function(req,res){
-  var retArr = [];
+app.get("/api/Mood/:subgroup", function(req,res){
   var _subgroup = req.params.subgroup;
+  var retArr = [];
 
   _.each(_DATA, function(elem){
     if (elem.tags.includes(_subgroup)) {
@@ -144,7 +144,7 @@ app.get("api/Mood/:subgroup", function(req,res){
   })
 
   res.json(retArr);
-})
+});
 
 app.get("/Curator/:subgroup", function(req,res) {
   var _subgroup = req.params.subgroup;
@@ -162,7 +162,7 @@ app.get("/Curator/:subgroup", function(req,res) {
     onHome: false,
     onCreate: false
   });
-})
+});
 
 app.get("/api/Curator/:subgroup", function (req, res) {
   var _subgroup = req.params.subgroup;

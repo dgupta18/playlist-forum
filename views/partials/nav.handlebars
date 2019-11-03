@@ -43,6 +43,13 @@
                     <br>`;
                     $('#left').append(card);
                 });
+
+                if ($('#left').html() == "") {
+                    var msg = `<article style="padding-left: 10px;">
+                                    <h2>No playlists yet - be the first to add one!</h2>
+                                </article>`
+                    $('#left').html(msg);
+                }
             });
         } else {
             $.get(url, function (data) {
@@ -68,12 +75,15 @@
                         </span>
                     </article>
                     <br>`;
-
-                    console.log(card);
-                    console.log("before: " + $('#left')[0].innerHTML);
                     $('#left').append(card);
-                    console.log("after:  " + $('#left')[0].innerHTML);
                 });
+
+                if ($('#left').html() == "") {
+                    var msg = `<article style="padding-left: 10px;">
+                                    <h2>No playlists matched "${value}"</h2><h4>Try another search, or add a playlist!</h4>
+                                </article>`
+                    $('#left').html(msg);
+                }
             });
         }
     }
