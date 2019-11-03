@@ -130,6 +130,19 @@
             ],
             "curator": "Divya",
             "cover": "https://66.media.tumblr.com/e7ec2ed7b3c14587d26ea0fd8bfc9159/tumblr_oknp04QbQT1qa4iv8o2_500.jpg"
+        },
+        {
+            "title": "Harry Styles",
+            "numSongs": 11,
+            "link": "https://open.spotify.com/playlist/5iIUATQKtEztnd0wCHJv3U?si=3bA5UV7ARAqX5fBJ3vDT4Q",
+            "isArtistComp": true,
+            "tags": [
+                "mellow",
+                "pop",
+                "rock"
+            ],
+            "curator": "Divya",
+            "cover": "https://static.spin.com/files/2017/05/Harry-1494856182-640x640.jpg"
         }
     ]
 }
